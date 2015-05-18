@@ -12,7 +12,13 @@ var {
 var BookBrowser = React.createClass({
   render: function() {
     return (
-      <View style={styles.container}>
+      <View style={{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: Math.random() > 0.5 ? '#F85931' : '#4CD964',
+      }}>
         <Text style={styles.headline}>
           BookBrowser
         </Text>
@@ -21,6 +27,9 @@ var BookBrowser = React.createClass({
         </Text>
         <TextInput 
         placeholder="Search!"
+        returnKeyType="search"
+        enablesReturnKeyAutomatically={true}
+        onEndEditing={ event => console.log(event.nativeEvent.text)}
         style={styles.textInput}/>
       </View>
     );
